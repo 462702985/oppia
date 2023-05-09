@@ -590,19 +590,11 @@ def main(args: Optional[List[str]] = None) -> None:
                 sys.exit(1)
 
             frontend_status = 0
-            ci_check_status = 0
             if does_diff_include_js_or_ts_files(files_to_lint):
                 frontend_status = run_script_and_get_returncode(
                     FRONTEND_TEST_CMDS)
             if frontend_status != 0:
                 print('Push aborted due to failing frontend tests.')
-                sys.exit(1)
-            if does_diff_include_ci_config_or_js_files(files_to_lint):
-                ci_check_status = run_script_and_get_returncode(
-                    CI_PROTRACTOR_CHECK_CMDS)
-            if ci_check_status != 0:
-                print(
-                    'Push aborted due to failing e2e test configuration check.')
                 sys.exit(1)
     return
 
