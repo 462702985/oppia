@@ -446,6 +446,6 @@ describe('Learner dashboard functionality', function() {
 
   afterEach(async function() {
     await general.checkForConsoleErrors([]);
-    await users.logout();
+    await users.logout(0);
   });
 });

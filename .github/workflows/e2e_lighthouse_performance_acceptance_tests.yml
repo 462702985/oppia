@@ -68,48 +68,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-22.04]
-        suite:
-          - accessibility
-          - additionalEditorFeatures
-          - additionalEditorFeaturesModals
-          - additionalPlayerFeatures
-          - adminPage
-          - blogDashboard
-          - blog
-          - checkpointFeatures
-          - classroomPage
-          - classroomPageFileUploadFeatures
-          - collections
-          - contributorDashboard
-          - coreEditorAndPlayerFeatures
-          - creatorDashboard
-          - embedding
-          - explorationFeedbackTab
-          - explorationImprovementsTab
-          - explorationHistoryTab
-          - explorationStatisticsTab
-          - explorationTranslationTab
-          - extensions
-          - featureGating
-          - fileUploadExtensions
-          - fileUploadFeatures
-          - learner
-          - learnerDashboard
-          - library
-          - navigation
-          - playVoiceovers
-          - preferences
-          - profileFeatures
-          - profileMenu
-          - publication
-          - skillEditor
-          - subscriptions
-          - topicsAndSkillsDashboard
-          - topicAndStoryEditor
-          - topicAndStoryEditorFileUploadFeatures
-          - topicAndStoryViewer
-          - users
-          - wipeout
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -194,8 +152,24 @@ jobs:
       - name: (artifact re-build) Remove build_files.zip
         if: steps.download_artifact_1.outcome == 'failure'
         run: rm build_files.zip
-      - name: Run E2E Test ${{ matrix.suite }}
-        run: xvfb-run -a --server-args="-screen 0, 1285x1000x24" python -m scripts.run_e2e_tests --skip-install --skip-build --suite=${{ matrix.suite }} --prod_env
+      - name: Run E2E Test 1
+        run: xvfb-run -a --server-args="-screen 0, 1285x1000x24" python -m scripts.run_e2e_tests --skip-install --skip-build --suite="learner" --prod_env
+        env:
+          VIDEO_RECORDING_IS_ENABLED: 1
+      - name: Run E2E Test 2
+        run: xvfb-run -a --server-args="-screen 0, 1285x1000x24" python -m scripts.run_e2e_tests --skip-install --skip-build --suite="learner" --prod_env
+        env:
+          VIDEO_RECORDING_IS_ENABLED: 1
+      - name: Run E2E Test 3
+        run: xvfb-run -a --server-args="-screen 0, 1285x1000x24" python -m scripts.run_e2e_tests --skip-install --skip-build --suite="learner" --prod_env
+        env:
+          VIDEO_RECORDING_IS_ENABLED: 1
+      - name: Run E2E Test 4
+        run: xvfb-run -a --server-args="-screen 0, 1285x1000x24" python -m scripts.run_e2e_tests --skip-install --skip-build --suite="learner" --prod_env
+        env:
+          VIDEO_RECORDING_IS_ENABLED: 1
+      - name: Run E2E Test 5
+        run: xvfb-run -a --server-args="-screen 0, 1285x1000x24" python -m scripts.run_e2e_tests --skip-install --skip-build --suite="learner" --prod_env
         env:
           VIDEO_RECORDING_IS_ENABLED: 1
       - name: Uploading webdriverio-video as Artifacts
