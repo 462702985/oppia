@@ -90,7 +90,7 @@ var logout = async function(id = '') {
     return !(/logout/.test(url));
   }, async() => {
     var splashPage = await $$('.e2e-test-splash-page')[0];
-    if (splashPage == undefined) {
+    if (splashPage === undefined) {
       await $$('.e2e-test-splash-page')[0];
     }
     await waitFor.visibilityOf(
