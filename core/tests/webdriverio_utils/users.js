@@ -90,10 +90,7 @@ var logout = async function(id = '') {
     // Wait until the URL has changed to something that is not /logout.
     return !(/logout/.test(url));
   }, async() => {
-    var splashPage = await $$('.e2e-test-splash-page')[0];
-    if (splashPage === undefined) {
-      await $$('.e2e-test-splash-page')[0];
-    }
+    var splashPage = $('.e2e-test-splash-page');
     await waitFor.visibilityOf(
       splashPage, 'Splash page takes too long to appear ' + id);
     await waitFor.pageToFullyLoad();
