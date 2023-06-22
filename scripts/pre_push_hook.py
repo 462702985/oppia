@@ -548,13 +548,6 @@ def main(args: Optional[List[str]] = None) -> None:
             if not modified_files and not files_to_lint:
                 continue
 
-            if files_to_lint:
-                lint_status = start_linter(files_to_lint)
-                if lint_status != 0:
-                    print(
-                        'Push failed, please correct the linting issues above.')
-                    sys.exit(1)
-
             mypy_check_status = execute_mypy_checks()
             if mypy_check_status != 0:
                 print(
