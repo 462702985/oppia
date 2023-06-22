@@ -79,11 +79,7 @@ module.exports = {
       'password-inputs-can-be-pasted-into': ['error', {'minScore': 1}],
       'image-aspect-ratio': ['error', {'minScore': 1}],
       'is-on-https': ['off', {}],
-      'uses-http2': ['off', {}],
-      audits: [
-        // Test the `ignoredPatterns` audit option.
-        {path: 'errors-in-console', options: {ignoredPatterns: ['^.*Content Security Policy.*$']}},
-      ]
+      'uses-http2': ['off', {}]
     }
   },
   basePerformanceAssertions: {
