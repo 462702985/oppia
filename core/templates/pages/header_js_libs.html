@@ -28,6 +28,6 @@
   <script src="/third_party/static/angularjs-1.8.2/angular.js"></script>
 <% } %>
 <!-- TODO(#17664): Fetch widget.js from donorbox only in the donate page. -->
-<% if (window.location.href.indexOf('donate') != -1) { %>
+<% if (typeof window !== 'undefined') { %>
   <script async src="https://donorbox.org/widget.js" paypalExpress="false"></script>
 <% } %>
